@@ -555,7 +555,8 @@ var TaskList = function TaskList(_ref) {
       taskListRef = _ref.taskListRef,
       horizontalContainerClass = _ref.horizontalContainerClass,
       TaskListHeader = _ref.TaskListHeader,
-      TaskListTable = _ref.TaskListTable;
+      TaskListTable = _ref.TaskListTable,
+      handleScrollY = _ref.handleScrollY;
   var horizontalContainerRef = React.useRef(null);
   React.useEffect(function () {
     if (horizontalContainerRef.current) {
@@ -587,7 +588,8 @@ var TaskList = function TaskList(_ref) {
     className: horizontalContainerClass,
     style: ganttHeight ? {
       height: ganttHeight
-    } : {}
+    } : {},
+    onScroll: handleScrollY
   }, React__default.createElement(TaskListTable, Object.assign({}, tableProps))));
 };
 
@@ -2700,7 +2702,8 @@ var Gantt = function Gantt(_ref) {
     setSelectedTask: handleSelectedTask,
     onExpanderClick: handleExpanderClick,
     TaskListHeader: TaskListHeader,
-    TaskListTable: TaskListTable
+    TaskListTable: TaskListTable,
+    handleScrollY: handleScrollY
   };
   return React__default.createElement("div", null, React__default.createElement("div", {
     className: styles$9.wrapper,

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { SyntheticEvent, useEffect, useRef } from "react";
 import { BarTask } from "../../types/bar-task";
 import { Task } from "../../types/public-types";
 
@@ -34,6 +34,7 @@ export type TaskListProps = {
     setSelectedTask: (taskId: string) => void;
     onExpanderClick: (task: Task) => void;
   }>;
+  handleScrollY: (event: SyntheticEvent<HTMLDivElement>) => void;
 };
 
 export const TaskList: React.FC<TaskListProps> = ({
@@ -53,6 +54,7 @@ export const TaskList: React.FC<TaskListProps> = ({
   horizontalContainerClass,
   TaskListHeader,
   TaskListTable,
+  handleScrollY,
 }) => {
   const horizontalContainerRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -87,6 +89,7 @@ export const TaskList: React.FC<TaskListProps> = ({
         ref={horizontalContainerRef}
         className={horizontalContainerClass}
         style={ganttHeight ? { height: ganttHeight } : {}}
+        onScroll={handleScrollY}
       >
         <TaskListTable {...tableProps} />
       </div>
