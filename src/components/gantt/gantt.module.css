@@ -8,7 +8,15 @@
 .horizontalContainer {
   margin: 0;
   padding: 0;
-  overflow: hidden;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+
+.horizontalContainer::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
 }
 
 .wrapper {

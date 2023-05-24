@@ -1,4 +1,4 @@
-import React from "react";
+import React, { SyntheticEvent } from "react";
 import { BarTask } from "../../types/bar-task";
 import { Task } from "../../types/public-types";
 export declare type TaskListProps = {
@@ -33,5 +33,6 @@ export declare type TaskListProps = {
         setSelectedTask: (taskId: string) => void;
         onExpanderClick: (task: Task) => void;
     }>;
+    handleScrollY: (event: SyntheticEvent<HTMLDivElement>) => void;
 };
 export declare const TaskList: React.FC<TaskListProps>;

@@ -448,6 +448,7 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
     onExpanderClick: handleExpanderClick,
     TaskListHeader,
     TaskListTable,
+    handleScrollY,
   };
   return (
     <div>
