@@ -185,7 +185,8 @@ export const Calendar: React.FC<CalendarProps> = ({
         <text
           key={date.getTime()}
           y={headerHeight * 0.8}
-          x={columnWidth * (i + +rtl)}
+          x={columnWidth * (i + +rtl) + columnWidth * 0.5} // align to center of each section
+          // x={columnWidth * (i + +rtl)}
           className={styles.calendarBottomText}
         >
           {bottomValue}
@@ -199,7 +200,8 @@ export const Calendar: React.FC<CalendarProps> = ({
             <TopPartOfCalendar
               key={topValue}
               value={topValue}
-              x1Line={columnWidth * i + weeksCount * columnWidth}
+              // x1Line={columnWidth * i + weeksCount * columnWidth}
+              x1Line={0}
               y1Line={0}
               y2Line={topDefaultHeight}
               xText={columnWidth * i + columnWidth * weeksCount * 0.5}
