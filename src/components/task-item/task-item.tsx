@@ -80,6 +80,14 @@ export const TaskItem: React.FC<TaskItemProps> = props => {
     }
   };
 
+  const getBarFontColor = () => {
+    return task.styles.barFontColor ? task.styles.barFontColor : "black";
+  };
+
+  const getBarFontWeight = () => {
+    return task.styles.barFontWeight ? task.styles.barFontWeight : "lighter";
+  };
+
   return (
     <g
       onKeyDown={e => {
@@ -115,6 +123,14 @@ export const TaskItem: React.FC<TaskItemProps> = props => {
           isTextInside
             ? style.barLabel
             : style.barLabel && style.barLabelOutside
+        }
+        style={
+          isTextInside
+            ? {
+                fill: getBarFontColor(),
+                fontWeight: getBarFontWeight(),
+              }
+            : undefined
         }
         ref={textRef}
       >

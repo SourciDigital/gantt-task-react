@@ -867,7 +867,7 @@ var Calendar = function Calendar(_ref) {
       bottomValues.push(React.createElement("text", {
         key: date.getTime(),
         y: headerHeight * 0.8,
-        x: columnWidth * (i + +rtl),
+        x: columnWidth * (i + +rtl) + columnWidth * 0.5,
         className: styles$5.calendarBottomText
       }, bottomValue));
 
@@ -876,7 +876,7 @@ var Calendar = function Calendar(_ref) {
           topValues.push(React.createElement(TopPartOfCalendar, {
             key: topValue,
             value: topValue,
-            x1Line: columnWidth * i + weeksCount * columnWidth,
+            x1Line: 0,
             y1Line: 0,
             y2Line: topDefaultHeight,
             xText: columnWidth * i + columnWidth * weeksCount * 0.5,
@@ -1874,6 +1874,14 @@ var TaskItem = function TaskItem(props) {
     }
   };
 
+  var getBarFontColor = function getBarFontColor() {
+    return task.styles.barFontColor ? task.styles.barFontColor : "black";
+  };
+
+  var getBarFontWeight = function getBarFontWeight() {
+    return task.styles.barFontWeight ? task.styles.barFontWeight : "lighter";
+  };
+
   return React.createElement("g", {
     onKeyDown: function onKeyDown(e) {
       switch (e.key) {
@@ -1905,6 +1913,10 @@ var TaskItem = function TaskItem(props) {
     x: getX(),
     y: task.y + taskHeight * 0.5,
     className: isTextInside ? style.barLabel :  style.barLabelOutside,
+    style: isTextInside ? {
+      fill: getBarFontColor(),
+      fontWeight: getBarFontWeight()
+    } : undefined,
     ref: textRef
   }, task.name));
 };
